@@ -31,8 +31,18 @@
 }
 
 .maintiles-tiles {
+  display: flex;
   height: 250px;
+  flex-direction: column;
   background-color: var(--tiles);
+}
+
+.maintiles-tiles-content {
+  max-height: 150px;
+  display: flex;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
 }
 
 .downtiles {
@@ -49,9 +59,15 @@
 
 .downtiles-tiles {
   height: 150px;
-
+  display: flex;
   border-radius: 5px;
   background-color: var(--tiles);
+}
+
+.downtiles-tiles-content {
+  width: 150px;
+  height: 150px;
+  color: white;
 }
 
 p {
