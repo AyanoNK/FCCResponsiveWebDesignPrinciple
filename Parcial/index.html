@@ -3,138 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css">
-    <title>Parcial</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Document</title>
 </head>
-<body>
-    <div id="main">
-        <div class="head">
-            Social Media Dashboard
-            
-            Total Followers: 9,999
-            Dark mode
-        </div>
-        <div class="maintiles">
-            
-            <div class="maintiles-tiles">
-                <div class="maintiles-tiles-content">
-                    <img src="./images/icon-facebook.svg" alt="">
-                    Facebook
-                </div>
-                <div class="maintiles-tiles-content">
-                    1987
-                    Followers 
-                </div>
-            </div>
-            <div class="maintiles-tiles">
-                <div class="maintiles-tiles-content">
-                    <img src="./images/icon-instagram.svg" alt="">
-                    Twitters
-                </div>
-                <div class="maintiles-tiles-content">
-                    1044 Followers
-                </div>
-            </div>
-            <div class="maintiles-tiles">
-                <div class="maintiles-tiles-content">
-                    <img src="./images/icon-twitter.svg" alt="">
-                    Twitter
-                </div>
-                <div class="maintiles-tiles-content">
-                    1044
-                    Followers 
-                </div>
-            </div>
-            <div class="maintiles-tiles">
-                <div class="maintiles-tiles-content">
-                    <img src="./images/icon-youtube.svg" alt="">
-                    YouTube
-                </div>
-                <div class="maintiles-tiles-content">
-                    8239
-                    Subscribed
-                </div>
-            </div>
-        </div>
-        <div class="downtiles">
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">   
-                    Page Views 87
-                </div>
-                <div class="downtiles-tiles-content">   
-                    <img src="./images/icon-facebook.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">   
-                    Likes 52
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-facebook.svg" alt="">
-                    -3% 
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
-                    Likes 5462
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-instagram.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
-                    Profile Views 52k 
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-instagram.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
-                    Retweets 117
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-twitter.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
-                    Likes 507 
-                </div>
-                <div class="downtiles-tiles-content">
-                    
-                    <img src="./images/icon-twitter.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
 
-                    Likes 107 
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-youtube.svg" alt="">
-                    +3%
-                </div>
-            </div>
-            <div class="downtiles-tiles">
-                <div class="downtiles-tiles-content">
-                    Total Views 1407
-                </div>
-                <div class="downtiles-tiles-content">
-                    <img src="./images/icon-youtube.svg" alt="">
-                    +3%
-                </div>
-                
-                
-                
-            </div>
+<!--
+  Cosas nuevas utilizadas
+  label: título para un elemento en una interfaz de usuario.
+  Las ventajas con respecto a <p> u otros son asociar con el input.
+
+  span: contenedor de texto, que no representa nada de forma inherente. Es como div, pero <div> es de bloques/containers, y <span> es inline.
+  por ejemplo, si se colocan tres divs y tres spans con texto dentro, los divs los pondrá con un enter entre ellos, pero span no.
+
+  section: como se define seccion en html. No tiene incidencia en el aspecto visual a menos que se indique lo contrario.
+  Con una clase se puede personalizar sólo esa sección en css.
+
+  article: Cuando se va a repetir código como listado, es bueno usar article. Está hecho para ser reutilizable.
+  En mi caso, con las tarjetas. No entendí muy bien la diferencia con un simple div, pero aparentemente son buenas prácticas.
+
+
+
+-->
+
+<body>
+    <header class="header">
+      <div class="mainContainer">
+        <div class="headerGrid">
+          <div>
+            <h1>Social Media Dashboard</h1>
+            <p class="headerTotalFollowers">Total Followers: 666,666</p>
+          </div>
+          <div class="dark-mode">
+            <p class="dark-mode-title">Dark Mode</p>
+            <!--cuando acaba /> es para evitar el fin-->
+            <input type="checkbox" class="checkbox" id="checkbox"/>
+            <label class="switch" for="checkbox">
+  
+            </label>
+          </div>
         </div>
-    </div>
-</body>
+      </div>
+    </header>
+    <section class="top-cards">
+      <div class="mainContainer">
+        <div class="grid">
+          <article class="slide facebook">
+            <p class="slide-title">
+              <img src="images/icon-facebook.svg" alt="">
+              @Ayano
+            </p>
+            <p>
+              <span class="slideNumber">666</span>
+              <span class="sliderTitle">Followers</span>
+            </p>
+            <p class="sliderImageContainer">
+              <img src="images/icon-up.svg" alt="">
+              12 Today
+            </p>
+          </article>
+          <article class="slide twitter">
+            <p class="slide-title">
+              <img src="images/icon-twitter.svg" alt="">
+              @Ayano
+            </p>
+            <p>
+              <span class="slideNumber">666k</span>
+              <span class="sliderTitle">Followers</span>
+            </p>
+            <p class="sliderImageContainer">
+              <img src="images/icon-up.svg" alt="">
+              12 Today
+            </p>
+          </article>
+          <article class="slide instagram">
+            <p class="slide-title">
+              <img src="images/icon-instagram.svg" alt="">
+              @Ayano
+            </p>
+            <p>
+              <span class="slideNumber">666k</span>
+              <span class="sliderTitle">Followers</span>
+            </p>
+            <p class="sliderImageContainer">
+              <img src="images/icon-up.svg" alt="">
+              12 Today
+            </p>
+          </article>
+          <article class="slide youtube">
+            <p class="slide-title">
+              <img src="images/icon-youtube.svg" alt="">
+              @Ayano
+            </p>
+            <p>
+              <span class="slideNumber">666k</span>
+              <span class="sliderTitle">Followers</span>
+            </p>
+            <p class="sliderImageContainer">
+              <img src="images/icon-up.svg" alt="">
+              12 Today
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="smallslides">
+      <div class="mainContainer">
+        <h2>Overview - Today</h2>
+        <div class="grid">
+          <div class="smallTile">
+            <p class="smallTileTitle">Page Views</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-facebook.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent">
+              <img src="images/icon-up.svg" alt="">
+              3%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Likes</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-facebook.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent is-danger">
+              <img src="images/icon-down.svg" alt="">
+              2%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Likes</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-instagram.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent">
+              <img src="images/icon-up.svg" alt="">
+              27%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Profile Views</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-instagram.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent">
+              <img src="images/icon-up.svg" alt="">
+              1%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Retweets</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-twitter.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent">
+              <img src="images/icon-up.svg" alt="">
+              3%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Likes</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-twitter.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent">
+              <img src="images/icon-up.svg" alt="">
+              3%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Likes</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-youtube.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent is-danger">
+              <img src="images/icon-down.svg" alt="">
+              1.3%
+            </p>
+          </div>
+          <div class="smallTile">
+            <p class="smallTileTitle">Total Views</p>
+            <p class="smallTileIcon">
+              <img src="images/icon-youtube.svg" alt="">
+            </p>
+            <p class="smallTileNumber">666</p>
+            <p class="smallTilePercent is-danger">
+              <img src="images/icon-down.svg" alt="">
+              2%
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/script.js"></script>
+  </body>
+  
+  </html>
 </html>

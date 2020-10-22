@@ -1,77 +1,333 @@
+/* declaracion colores */
 :root {
-  --background: #1d2029;
-  --tiles: #252b43;
-  --grayLetter: #8089b2;
+  --greenText: #1db489;
+  --bright-red: #dc414c;
+  --facebookHeader: #168ef4;
+  --twitterHeader: #1ca0f2;
+  --instagram-1: #fdc468;
+  --instagram-2: #df4996;
+  --redYoutube: #c4032a;
+  --gray: #5f616d;
+  --GrisTile: #f0f3fa;
+  --GrisClaro: #f8f9fe;
+  --slideTitle: #6f717e;
+  --WholeBackground: white;
+  --ContraColor: #1d2029;
+  --colorSwitcher: white;
+  --switch: #5f616d;
 }
 
-#main {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100vw;
-  height: 100vh;
+/* 
+   font-family: no hay que importarlas porque son genericas y vienen incluidas 
+*/
+
+body {
+  margin: 0;
+  color: var(--ContraColor);
+  background: var(--WholeBackground);
+  font-family: "Inter", sans-serif;
 }
 
-.head {
-  max-width: 100%;
-  height: 200px;
-  position: relative;
-}
-
-.maintiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 350px));
-  grid-column-gap: 20px;
-  align-items: end;
-  max-width: 100%;
-  height: 350px;
-  justify-content: center;
-}
-
-@media (max-width: 300px) {
-  .maintiles-tiles {
-    display: flex;
-    height: 250px;
-    flex-direction: column;
-    background-color: var(--tiles);
-  }
-}
-
-.maintiles-tiles-content {
-  max-height: 150px;
-  display: flex;
-  border-radius: 5px;
-  color: white;
-  background-color: black;
-}
-
-.downtiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 350px);
-  grid-template-rows: repeat(auto-fit, 150px);
-  grid-gap: 20px;
-  align-items: end;
-  max-width: 100%;
-  height: 350px;
-  justify-content: center;
-}
-
-.downtiles-tiles {
-  height: 150px;
-  display: flex;
-  border-radius: 5px;
-  background-color: var(--tiles);
-}
-
-.downtiles-tiles-content {
-  width: 250px;
-  height: 150px;
-  color: white;
-}
-
-p {
+h1 {
+  /*em: relativo al size de la fuente*/
+  font-size: 1.7em;
   margin: 0;
 }
 
-body {
-  background-color: var(--background);
+h2 {
+  color: var(--gray);
+}
+
+.mainContainer {
+  padding: 0 30px;
+  background-color: red;
+}
+
+.grid {
+  display: grid;
+  grid-row-gap: 25px;
+}
+
+/*  checkbox
+  para que el checkbox se necesita decir cómo se tiene que ver cuando le den slide hacia ambos lados
+  lo que hace el checkbox se resuelve en javascript, o en un script metido en el html
+  https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
+*/
+.checkbox:checked ~ .switch:before {
+  /* transform permite permite rotar o escalar algo. */
+  transform: translateX(0);
+}
+
+/* definicion del switch que cambia entre dia y noche */
+.switch {
+  /* block muestra un elemento como de bloque (como <p>). Comienza en una nueva línea y ocupa todo el ancho */
+  display: block;
+  height: 40px;
+  width: 80px;
+  padding: 5px;
+  border-radius: 20px;
+  background: var(--switch);
+  /* box-sizing es para incluir el relleno y el borde en el ancho y alto total de un elemento. Entonces con esto se acomoda la caja del switch*/
+  box-sizing: border-box;
+  /* se puede cambiar el cursor para que no sea el mouse normal sino el de seleccionar */
+  cursor: pointer;
+}
+
+/* el circulo/spinner/dasher de adentro. */
+.switch::before {
+  /* deberia ser un rectangulo pero como le ponemos radio y el contenido es nada, entonces da la sensacion de que es un circulito */
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: var(--colorSwitcher);
+  border-radius: 50%;
+  transform: translateX(40px);
+  /* la animacion se llama con transition y dura 0.3 segundos */
+  transition: 0.3s;
+  /* will-change dice cómo va a cambiar cuando se active el switch, casi como llamando una funcion que en este caso es transform
+    tambien puede ser auto, left, top, etc.
+  */
+  will-change: transform;
+}
+/* header  */
+.header {
+  background: var(--GrisClaro);
+  border-radius: 0 0 20px 20px;
+  padding-top: 2em;
+  padding-bottom: 100px;
+}
+
+.headerTotalFollowers {
+  margin: 0.5em 0;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 1.5em;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+/* top card  */
+.top-cards {
+  margin-bottom: 50px;
+  margin-top: -50px;
+}
+
+/* slides  */
+.slide {
+  border-radius: 8px;
+
+  background: var(--GrisTile);
+  text-align: center;
+  padding: 1.7em 0;
+  position: relative;
+}
+
+.slide:before {
+  /* se coloca contenido en blanco para que aparezca por lo que si no hay contenido no aparece nada */
+  content: "";
+  height: 4px;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* si se coloca un puntico entre las palabras, en css se traduce como un espacio dentro de la clase.
+    Me dijeron que era bueno usarlo pero logré encontrar una razón
+    */
+
+/* ::before pone algo antes del contenido.
+    En este caso, el background tiene un color y encima se coloca otro contenedor para que parezca como un margen arribita
+    https://www.w3schools.com/cssref/sel_before.asp
+    */
+
+.slide.facebook::before {
+  background: var(--facebookHeader);
+}
+
+.slide.twitter::before {
+  background: var(--twitterHeader);
+}
+
+.slide.instagram::before {
+  /* contrario a lo que creía, no era background color, sino background image, aunque no tengo muy claro por qué.
+       linear gradient normalmente va de arriba hacia abajo pero se puede poner un parametro de que vaya hacia la derecha.
+       los porcentajes definen donde están los centros de cada color.
+    */
+  background-image: linear-gradient(
+    to right,
+    var(--instagram-1) 0%,
+    var(--instagram-2) 100%
+  );
+}
+.slide.youtube::before {
+  background: var(--redYoutube);
+}
+
+.slide-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slideTitle);
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.slide-title img {
+  margin-right: 5px;
+}
+
+.slideNumber {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.sliderTitle {
+  display: block;
+  text-transform: uppercase;
+  color: var(--slideTitle);
+  letter-spacing: 5px;
+  font-size: 0.75em;
+}
+
+.sliderImageContainer {
+  margin-top: 20px;
+  color: var(--greenText);
+  font-size: 0.7em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderImageContainer img {
+  margin-right: 5px;
+}
+
+/* overview  */
+.smallslides {
+  background-color: blue;
+}
+
+.smallTile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1em;
+  background: var(--GrisTile);
+  border-radius: 8px;
+  padding: 1.7em;
+}
+.smallTile p {
+  margin: 0;
+}
+
+.smallTileTitle {
+  color: var(--slideTitle);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.smallTileIcon {
+  text-align: right;
+}
+
+.smallTileNumber {
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height: 0.9;
+}
+
+.smallTilePercent {
+  text-align: right;
+  display: flex;
+  align-items: flex-end;
+  color: var(--greenText);
+  justify-content: flex-end;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.smallTilePercent.is-danger {
+  color: var(--bright-red);
+}
+.smallTilePercent img {
+  margin-right: 5px;
+}
+
+/* Medias para que sea responsive.
+   Las medidas para las anchuras se sacaron de aca
+   https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/
+
+*/
+@media screen and (min-width: 480px) {
+  .grid {
+    /* fr unidad fraccional. 1fr es una parte del espacio disponible*/
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+  }
+  .mainContainer {
+    max-width: 1440px;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .headerTotalFollowers {
+    border: none;
+  }
+  .headerGrid {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+/* el nombre prefers-color-scheme es para que lo reciba el javascript */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --GrisTile: #252b43;
+    --gray: #8088ad;
+    --GrisClaro: #1d2029;
+    --WholeBackground: #1d2029;
+    --ContraColor: white;
+    --slideTitle: #8088ad;
+    --switchSpinner: #282943;
+    --switch: linear-gradient(to right, #4796d2 0%, #37ce8f 100%);
+  }
+}
+
+.dark-mode {
+  display: flex;
+  justify-content: space-between;
+  /*em: relativo al size de la fuente*/
+  padding-top: 1em;
+}
+
+.is-dark-mode {
+  --GrisTile: #252b43;
+  --gray: #8088ad;
+  --GrisClaro: #1d2029;
+  --WholeBackground: #1d2029;
+  --ContraColor: white;
+  --slideTitle: #8088ad;
+  --colorSwitcher: #282943;
+  --switch: linear-gradient(to right, #4796d2 0%, #37ce8f 100%);
+}
+
+.is-light-mode {
+  --gray: #5f616d;
+  --GrisTile: #f0f3fa;
+  --GrisClaro: #f8f9fe;
+  --slideTitle: #6f717e;
+  --WholeBackground: white;
+  --ContraColor: #1d2029;
+  --colorSwitcher: white;
+  --switch: #5f616d;
 }
