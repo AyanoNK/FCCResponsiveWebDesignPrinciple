@@ -106,8 +106,8 @@ h2 {
   font-weight: 600;
 }
 
-/* top card  */
-.top-cards {
+/* slides grandes  */
+.BigCardsContainer {
   margin-bottom: 50px;
   margin-top: -50px;
 }
@@ -165,7 +165,7 @@ h2 {
   background: var(--redYoutube);
 }
 
-.slide-title {
+.slideTitle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,7 +173,7 @@ h2 {
   font-size: 0.9em;
   font-weight: bold;
 }
-.slide-title img {
+.slideTitle img {
   margin-right: 5px;
 }
 
