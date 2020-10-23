@@ -40,7 +40,6 @@ h2 {
 
 .mainContainer {
   padding: 0 30px;
-  background-color: red;
 }
 
 .grid {
@@ -204,9 +203,8 @@ h2 {
   margin-right: 5px;
 }
 
-/* overview  */
 .smallslides {
-  background-color: blue;
+  background-color: var(--WholeBackground);
 }
 
 .smallTile {
